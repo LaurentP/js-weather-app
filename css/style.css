@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #001d46;
+    background: linear-gradient(#001d46, #0d47a1);
     color: #fff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
     font-family: sans-serif;
@@ -24,12 +24,18 @@ form {
 form input {
     box-sizing: border-box;
     width: 100%;
-    padding: 4px;
+    padding: 8px;
     border: none;
     border-radius: 4px;
-    font-size: inherit;
-    outline-color: skyblue;
+    font-size: 20px;
+    outline-color: #87ceeb;
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .5);
+    opacity: .5;
+    transition: 200ms;
+}
+
+form input:focus {
+    opacity: 1;
 }
 
 .icon {
