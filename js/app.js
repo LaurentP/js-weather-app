@@ -33,7 +33,10 @@ const weatherLoad = (city) => {
     fetch(url).then(response => {
         if (response.ok) {
             response.json().then(data => {
-                console.log(data)
+                
+                // Debug
+                // console.log(data)
+                
                 document.querySelector('.city').innerHTML = `<span class="city">${city}</span>`
                 document.querySelector('.icon').innerHTML = `<img src="./img/${WEATHER_ICONS[data.weather[0].icon]}.svg" alt="">`
                 weatherDetails.innerHTML = `
@@ -54,4 +57,9 @@ document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault()
     let city = document.querySelector('form #city').value
     weatherLoad(city)
+    localStorage.setItem('city', city)
 })
+
+const city = localStorage.getItem('city')
+
+if (city !== null) weatherLoad(city)
